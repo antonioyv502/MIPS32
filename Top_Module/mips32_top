@@ -1,3 +1,5 @@
+`include "MyDefines.v"
+
 module mips32_top(clk, rst);
     
     input clk, rst;
@@ -56,7 +58,7 @@ module mips32_top(clk, rst);
     
     
     mips32_ctrl    U8(.clk(clk), .rst(rst), .op(op) , .func(func), .aluop(aluop), .pc_rst(pc_rst), 
-                      .pc_clk(pc_clk), .wreg(), .wreg_clk(reg_wclk), .wreg_src(wreg_src), .aluB_src(aluB_src));
+                      .pc_clk(pc_clk), .wreg(reg_we), .wreg_clk(reg_wclk), .wreg_src(wreg_src), .aluB_src(aluB_src));
 
     
 

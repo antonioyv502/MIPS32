@@ -15,22 +15,31 @@ module mips32_top(clk, rst);
     wire [4:0]   rd;
     wire [15:0]  imm16;       //sign extension 16 bits
     wire [4:0]   wreg;        //output for 1st mux
-    wire         wreg_src;     //selection line for rt or rd
+    wire         wreg_src;    //selection line for rt or rd
     
     wire         reg_we;      //write enable for reg_file
     wire         reg_wclk;    //clk for reg_file
     wire [31:0]  reg1_data; 
     wire [31:0]  reg2_data;
     
-    wire [31:0]  imm32;      //sign extension 32 bits
-    wire         aluB_src;   //selection line for reg_2data or imm32
+    wire [31:0]  imm32_sign;  //sign extension 32 bits
+    wire [31:0]  imm32_zero;  //zero extension 32 bits
+    wire         aluB_src;    //selection line for reg_2data or imm32
     wire [31:0]  aluB;
     wire [6:0]   aluop;      
     wire [31:0]  alu_result;
     
+    wire [31:0] imm32;
     
-
-    pc_reg         U0(.clk(pc_clk), .rst(pc_rst), .pc(pc), .ce(ce));
+    //if opcode is addi, sign extension, otherwise zero extension
+    assign imm32 = (op == `OP_ADDI) ? imm32_sign: 
+                   (op == `OP_ORI)  ? imm32_zero:
+                                      imm32_sign; 
+   
+   
+  
+  
+    pc_reg         U0(.clk(pc_clk), .rst(rst), .pc(pc), .ce(ce));
     
     
     inst_rom       U1(.ce(ce), .addr(pc), .inst(inst));
@@ -47,17 +56,19 @@ module mips32_top(clk, rst);
                       .reg1_data(reg1_data), .reg2_data(reg2_data));
                       
     
-    sign_ext       U5(.int16(imm16), .int32(imm32));
+    sign_ext       U5(.imm16(imm16), .imm32(imm32_sign));
+    
+    zero_ext       U6(.imm16(imm16), .imm32(imm32_zero));
     
     
-    mux2to1_32b    U6(.in0(reg2_data), .in1(imm32), .sel(aluB_src), .out(aluB));
+    mux2to1_32b    U7(.in0(reg2_data), .in1(imm32), .sel(aluB_src), .out(aluB));
     
     
-    alu32          U7(.aluA(reg1_data), .aluB(aluB), .alu_op(aluop), .alu_result(alu_result), 
+    alu32          U8(.aluA(reg1_data), .aluB(aluB), .alu_op(aluop), .alu_result(alu_result), 
                       .flag_Z(), .flag_N(), .flag_V(), .flag_C());
     
     
-    mips32_ctrl    U8(.clk(clk), .rst(rst), .op(op) , .func(func), .aluop(aluop), .pc_rst(pc_rst), 
+    mips32_ctrl    U9(.clk(clk), .rst(rst), .op(op) , .func(func), .aluop(aluop), .pc_rst(pc_rst), 
                       .pc_clk(pc_clk), .wreg(reg_we), .wreg_clk(reg_wclk), .wreg_src(wreg_src), .aluB_src(aluB_src));
 
     

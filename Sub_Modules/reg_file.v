@@ -3,11 +3,11 @@
 
 module reg_file(clk, we, reg1, reg2, wreg, wdata, reg1_data, reg2_data);
 
-    input         clk, we;
-    input  [4:0]  reg1;
-    input  [4:0]  reg2;
-    input  [4:0]  wreg;
-    input  [31:0] wdata;
+    input         clk, we; //clk and write enable
+    input  [4:0]  reg1;    //rs
+    input  [4:0]  reg2;    //rt
+    input  [4:0]  wreg;    //rt or rd depending on instruction type 
+    input  [31:0] wdata;   //write back data
     
     output [31:0] reg1_data;
     output [31:0] reg2_data;

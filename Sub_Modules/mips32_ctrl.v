@@ -48,24 +48,29 @@ module mips32_ctrl(clk, rst, op , func, aluop, pc_rst, pc_clk, wreg, wreg_clk, w
                 S_IDLE: begin  
                     state <= S_IF; //next state is Fetch
                     pc_rst   <= 1'b1;
-                    pc_clk   <= 1'b0;                    
+                    pc_clk   <= 1'b0;
+                    wreg_clk <= 1'b0;
+                    wreg     <= 1'b0;
+                    
                 end
                 
                 S_IF: begin 
                     state <= S_ID; //next state is Decode
                     pc_rst   <= 1'b0;
-                    pc_clk   <= 1'b1;  
+                    pc_clk   <= 1'b1;
+                    wreg_clk <= 1'b0;  
                 end 
                 
                 S_ID: begin 
                     state <= S_EXE; //next state is Execute(ALU)
+                    pc_clk   <= 1'b0;
                 end 
                 
                 S_EXE: begin 
                     state <= S_WB;  //next state is Write back
                     
                     if (op == 6'b000000) begin 
-                        //r-type instruction op code is 6'b0000000, so based on function
+                        //r-type instruction op code is 0, so based on function
                         aluB_src <= 0;  
                         
                         case(func)
@@ -114,7 +119,7 @@ module mips32_ctrl(clk, rst, op , func, aluop, pc_rst, pc_clk, wreg, wreg_clk, w
                 end 
                 
                 S_WB: begin
-                    state <= S_IDLE;    //next state is Fetch
+                    state <= S_IF;    //next state is Fetch
                     wreg <= 1;
                     wreg_clk <= 1;
                     

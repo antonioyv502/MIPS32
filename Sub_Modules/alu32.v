@@ -18,11 +18,11 @@ module alu32(aluA, aluB, alu_op, alu_result, flag_Z, flag_N, flag_V, flag_C);
     reg        flag_C;          //carryout flag
 
     assign flag_Z = (alu_result == 0);
-    assign flag_N = alu_result[31];
+    assign flag_N = alu_result[31];  //Negative if MSB is 1
 
     always @(*) begin 
-        flag_V = 0;
-        flag_C = 0;
+        flag_V = 1'b0;
+        flag_C = 1'b0;
     
         case(alu_op)
             `ALUOP_ADD: begin 
@@ -55,6 +55,8 @@ module alu32(aluA, aluB, alu_op, alu_result, flag_Z, flag_N, flag_V, flag_C);
             
             default: begin 
                 alu_result = 32'b0;
+                flag_V = 1'b0;
+                flag_C = 1'b0;
             end 
         endcase
     end   

@@ -9,7 +9,7 @@ module pc_reg(clk, rst, pc, ce);
     reg                 ce;
     
     
-    always @(posedge clk) begin
+    always @(posedge clk or posedge rst) begin // asynchronous reset
         if( rst == `RST_ENABLE) begin
             ce <= `CHIP_DISABLE;        
         end else begin     

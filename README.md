@@ -5,7 +5,7 @@ R-Type
 - SUB
 - AND
 - OR
--XOR
+- XOR
 I-Type
 - ADDI
 - ORI

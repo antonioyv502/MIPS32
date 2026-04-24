@@ -1,4 +1,7 @@
-## MIPS32 Single-Cycle Processor
+# MIPS32 Single-Cycle ProcessorCon
+
+## Description
+This project implements a 32-bit MIPS single-cycle processor using Verilog and developed in Quartus Prime.
 ## Supported Instructions 
 R-Type
 - ADD
@@ -10,3 +13,12 @@ R-Type
 I-Type
 - ADDI
 - ORI
+
+## Architecture 
+This proccessor is composed of the following core components:
+- Program Counter(PC)
+- Instruction Memory
+- Control Unit
+- Register File
+- ALU(Arithmetic Logic Unit)
+- Multiplexers 

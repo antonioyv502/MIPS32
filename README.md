@@ -6,6 +6,7 @@ R-Type
 - AND
 - OR
 - XOR
+  
 I-Type
 - ADDI
 - ORI

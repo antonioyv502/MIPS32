@@ -15,7 +15,7 @@ I-Type
 - ORI
 
 ## Architecture 
-This proccessor is composed of the following core components:
+This processor is composed of the following core components:
 - Program Counter(PC)
 - Instruction Memory
 - Control Unit

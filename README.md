@@ -25,4 +25,4 @@ This proccessor is composed of the following core components:
 
 ## RTL Viewer in Quartus Prime 
 
-![RTL_Viewer](./RTL_Viewer/mips32_rtl.pdf)
+![RTL_Viewer](./RTL_Viewer/mips32_rtl.png)

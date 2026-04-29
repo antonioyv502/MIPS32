@@ -21,4 +21,8 @@ This proccessor is composed of the following core components:
 - Control Unit
 - Register File
 - ALU(Arithmetic Logic Unit)
-- Multiplexers 
+- Multiplexers
+
+## RTL Viewer in Quartus Prime 
+
+![RTL_Viewer](./RTL_viewer/mips32_rtl.pdf)

@@ -1,4 +1,4 @@
-# MIPS32 Single-Cycle ProcessorCon
+# MIPS32 Single-Cycle Processor
 
 ## Description
 This project implements a 32-bit MIPS single-cycle processor using Verilog and developed in Quartus Prime.

@@ -14,8 +14,8 @@ module mips32_top(clk, rst);
     wire [4:0]   rt;
     wire [4:0]   rd;
     wire [15:0]  imm16;       //sign extension 16 bits
-    wire [4:0]   wreg;        //output for 1st mux
-    wire         wreg_src;    //selection line for rt or rd
+    wire [4:0]   wreg;        //write register
+    wire         wreg_src;    //register destination(rt or rd)
     
     wire         reg_we;      //write enable for reg_file
     wire         reg_wclk;    //clk for reg_file
@@ -32,9 +32,8 @@ module mips32_top(clk, rst);
     wire [31:0] imm32;
     
     //if opcode is addi, sign extension, otherwise zero extension
-    assign imm32 = (op == `OP_ADDI) ? imm32_sign: 
-                   (op == `OP_ORI)  ? imm32_zero:
-                                      imm32_sign; 
+    assign imm32 = (op == `OP_ADDI) ? imm32_sign: imm32_zero;
+                                      
    
    
   

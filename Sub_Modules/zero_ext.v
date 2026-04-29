@@ -1,3 +1,5 @@
+`include "MyDefines.v"
+
 module zero_ext(imm16, imm32);
 
 input  [15:0] imm16;

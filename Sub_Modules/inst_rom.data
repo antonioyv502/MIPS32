@@ -1,4 +1,11 @@
-20010022    //addi R1, R0, 0x0022
-20020044    //addi R2, R0, 0x0044
-3421000f    //ori  R1, R1, 0x000f
-344200f0    //ori  R2, R2, 0x00F0
+20010022   //addi R1, R0, 0x0022     expected value: 0x00000022
+20020044   //addi R2, R0, 0x0044     expected value: 0x00000044
+3421000f   //ori  R1, R1, 0x000f     expected value: 0x0000002f
+344200f0   //ori  R2, R2, 0x00f0     expected value: 0x000000f4
+00221820   //add  R3, R1, R2         expected value: 0x00000123
+00612024   //and  R4, R3, R1         expected value: 0x00000023
+2085FF08   //addi R5, R4, 0xff08     expected value: 0xffffff2B
+34A600FA   //ori  R6, R5, 0x00FA     expected value: 0xfffffffB
+00C53820   //add  R7, R6, R5         expected value: 0xffffff26
+
+// All expected values were correct

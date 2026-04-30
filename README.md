@@ -13,6 +13,7 @@ R-Type
 I-Type
 - ADDI
 - ORI
+- ANDI
 
 ## Architecture 
 This processor is composed of the following core components:

@@ -7,5 +7,7 @@
 2085FF08   //addi R5, R4, 0xff08     expected value: 0xffffff2B
 34A600FA   //ori  R6, R5, 0x00FA     expected value: 0xfffffffB
 00C53820   //add  R7, R6, R5         expected value: 0xffffff26
+30E80048   //andi R8, R7, 0x0048     expected value: 0x00000000
+
 
 // All expected values were correct

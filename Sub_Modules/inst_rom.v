@@ -8,8 +8,8 @@ module inst_rom(ce, addr, inst);
     
     reg [`INST_DATABUS] inst;
     
-    reg [`INST_DATABUS] instmem [0:10];
-    
+    reg [`INST_DATABUS] instmem [0:12]; //reg memory array (13 x 32-bit memory)
+
     initial $readmemh("C:/BAT/CSULA/EE_4480/16_MIPS32_V1/Source/inst_rom.data", instmem); //need to make inst_rom.data file
     
     always @(*) begin 

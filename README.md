@@ -31,6 +31,6 @@ This processor is composed of the following core components:
 
 ## 📸 Simulation Waveform
 
-![Waveform1](./Waveforms/mips32_waveforml.png)
+![Waveform1](./Waveforms/mips32_waveform1.png)
 
 ![Waveform2](./Waveforms/mips32_waveform2.png)

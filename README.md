@@ -19,6 +19,7 @@ I-Type
 This processor is composed of the following core components:
 - Program Counter(PC)
 - Instruction Memory
+- Instruction decoder 
 - Control Unit
 - Register File
 - ALU(Arithmetic Logic Unit)

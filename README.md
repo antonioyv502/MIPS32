@@ -32,6 +32,8 @@ This processor is composed of the following core components:
 
 ## 📸 Simulation Waveform
 
+This waveform shows the PC incrementing by 4 at every rising edge of the clock, instructions being fetched from the instruction memory and the instruction being decoded into opcode, source/destination registers, and immediate values. 
+
 ![Waveform1](./Waveforms/mips32_waveform1.png)
 
 ![Waveform2](./Waveforms/mips32_waveform2.png)

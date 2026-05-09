@@ -30,7 +30,7 @@ This processor is composed of the following core components:
 ![RTL_Viewer](./RTL_Viewer/mips32_rtl.png)
 
 
-## Instruction Decode Table MIPS32 SIngle Cycle
+## Instruction Decode Table MIPS32 Single Cycle
 | #  | Machine Code (Hex) | Binary (32-bit)                  | Opcode | rs | rt | rd | Immediate    |
 |----|--------------------|----------------------------------|--------|----|----|----|--------------|
 | 1  | 0x20010022         | 00100000000000010000000000100010 | addi   | 0  | 1  | -  | 0x0022 (34)  |

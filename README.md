@@ -1,7 +1,7 @@
 # MIPS32 Single-Cycle Processor
 
 ## Description
-This project implements a 32-bit MIPS single-cycle processor using Verilog and developed in Quartus Prime.
+This project implements a 32-bit MIPS single-cycle processor using Verilog and developed in Quartus Prime. This project is still being worked on and will include other instructions. Future instructions that will be added are lw(Load Word), sw(Store Word), beq(Branch On Equal) and bne(Branch On Not Equal).
 ## Supported Instructions 
 R-Type
 - ADD

@@ -23,18 +23,20 @@
 
 //OPCODE [31:26]
 
-`define OP_R_TYPE             6'b000000
-`define OP_ADDI               6'b001000
-`define OP_ORI                6'b001101 
+`define OP_R_TYPE             6'b000000  // 0x0
+`define OP_ADDI               6'b001000  // 0x8
+`define OP_ORI                6'b001101  // 0xd
+`define OP_ANDI               6'b001100  // 0xc
+`define OP_BEQ                6'b000100  // 0x4
 
 
 //func [5:0] R-Type
-`define FUNC_ADD              6'b100000
-`define FUNC_SUB              6'b100010
-`define FUNC_AND              6'b100100
-`define FUNC_OR               6'b100101
-`define FUNC_XOR              6'b100110
-`define FUNC_NOR              6'b100111
+`define FUNC_ADD              6'b100000  // 0x20
+`define FUNC_SUB              6'b100010  // 0x22
+`define FUNC_AND              6'b100100  // 0x24
+`define FUNC_OR               6'b100101  // 0x25
+`define FUNC_XOR              6'b100110  // 0x26
+`define FUNC_NOR              6'b100111  // 0x27
 
 
 //Instruction  ROM(InsROM)

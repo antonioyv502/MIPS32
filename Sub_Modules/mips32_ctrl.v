@@ -5,20 +5,20 @@ module mips32_ctrl(clk, rst, op , func, zero, aluop, pc_rst, pc_clk, wreg, wreg_
     input        clk, rst;
     input  [5:0] op;
     input  [5:0] func;
-	 input        zero;      // comes from zero flag from ALU, 
+	input        zero;      // comes from zero flag from ALU, 
     output [6:0] aluop;
-	 output       pc_src;
+	output       pc_src;
     output       pc_rst, pc_clk;
     output       wreg, wreg_clk;  
     output       wreg_src, aluB_src;
-	 output       branch;    
+	output       branch;    
     
     reg [6:0] aluop;
-	 reg       pc_src;      // 0: PC + 4, 1: 
+	reg       pc_src;      // 0: PC + 4, 1: 
     reg       pc_rst, pc_clk;
     reg       wreg, wreg_clk;
     reg       wreg_src, aluB_src;
-	 reg       branch;     // beq instruction
+	reg       branch;     // beq instruction
     
      
    

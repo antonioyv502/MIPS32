@@ -32,10 +32,10 @@ The MIPS32 processor follows a single-cycle architecture, where each instruction
 
 ```mermaid
 flowchart TD
-    A[Instruction Fetch] --> B[Instruction Decode]
-    B --> C[Register Read]
-    C --> D[ALU Execution]
-    D --> E[Register Write-Back]
+    A["Instruction Fetch (IF)"] --> B["Instruction Decode (ID)"]
+    B --> C["Execution (ALU)"]
+    C --> D["Memory Access (MEM)"]
+    D --> E["Write Back (WB)"]
 ```
 
 

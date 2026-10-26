@@ -17,13 +17,29 @@ I-Type
 
 ## Architecture 
 This processor is composed of the following core components:
-- Program Counter(PC)
-- Instruction Memory
-- Instruction decoder 
-- Control Unit
-- Register File
-- ALU(Arithmetic Logic Unit)
-- Multiplexers
+- Program Counter(PC) - Stores the address of the current instruction.
+- Instruction Memory  - Stores the machine code instructions.
+- Instruction decoder - Extracts instruction fields such as opcode, rs, rt, rd, and immediate.
+- Control Unit - Generates control signals based on the instruction.
+- Register File - Stores source registers and destination registers. 
+- ALU(Arithmetic Logic Unit) - Performs arithmetic and logical operations.
+- Multiplexers - Select between different data inputs based on the control signals.
+
+
+## Instruction Execution Flow
+
+The MIPS32 processor follows a single-cycle architecture, where each instruction completes within one clock cycle.
+
+```mermaid
+flowchart TD
+    A[Instruction Fetch] --> B[Instruction Decode]
+    B --> C[Register Read]
+    C --> D[ALU Execution]
+    D --> E[Register Write-Back]
+```
+
+**Note:** These are logical steps within one clock cycle, not separate clock cycles.
+  
 
 ## RTL Viewer in Quartus Prime 
 

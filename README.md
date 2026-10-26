@@ -38,7 +38,7 @@ flowchart TD
     D --> E[Register Write-Back]
 ```
 
-**Note:** These are logical steps within one clock cycle, not separate clock cycles.
+
   
 
 ## RTL Viewer in Quartus Prime 
